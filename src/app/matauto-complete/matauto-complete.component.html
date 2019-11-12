@@ -1,0 +1,159 @@
+<div>
+  <h2 class="tp-h2">Select Autocomplete</h2>
+  <form class="tp-form">
+    <mat-form-field class="tp-full-width">
+      <input type="text" placeholder="Select State" aria-label="Number" matInput [formControl]="myControl"
+        [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let state of states" [value]="state.value">
+          {{state.display}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</div>
+
+<hr>
+
+<div>
+  <h2 class="tp-h2">Checkbox configuration</h2>
+  <section class="tp-section">
+    <mat-checkbox class="tp-margin" [(ngModel)]="checked">Checked</mat-checkbox>
+    <mat-checkbox class="tp-margin" [(ngModel)]="indeterminate">Indeterminate</mat-checkbox>
+  </section>
+  <section class="tp-section">
+    <mat-checkbox class="tp-margin" [(ngModel)]="disabled">Disabled</mat-checkbox>
+  </section>
+  <h2 class="tp-h2">Result</h2>
+  <section class="tp-section">
+    <mat-checkbox class="tp-margin" [(ngModel)]="checked" [(indeterminate)]="indeterminate"
+      [labelPosition]="labelPosition" [disabled]="disabled">
+      Sample Checkbox
+    </mat-checkbox>
+  </section>
+</div>
+
+<hr>
+
+<div>
+  <h2 class="tp-h2">Date configuration</h2>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div>
+
+<hr>
+
+<div>
+  <h2 class="tp-h2">Form configuration</h2>
+  <div class="tp-container">
+    <mat-form-field appearance="standard">
+      <input matInput placeholder="Input">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Sample Hint</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <textarea matInput placeholder="Textarea"></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-select placeholder="Select">
+        <mat-option value="A">A</mat-option>
+        <mat-option value="B">B</mat-option>
+        <mat-option value="C">C</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+
+<hr>
+<div>
+  <h2 class="tp-h2">Input Form configuration</h2>
+
+  <form class="tp-form">
+    <mat-form-field class="tp-full-width">
+      <input matInput placeholder="Favorite Food" value="Pasta">
+    </mat-form-field>
+    <mat-form-field class="tp-full-width">
+      <textarea matInput placeholder="Enter your comment"></textarea>
+    </mat-form-field>
+    <mat-form-field class="tp-full-width">
+      <input matInput placeholder="Email" [formControl]="emailFormControl">
+      <mat-error *ngIf="emailFormControl.hasError('email') 
+              && !emailFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+
+<hr>
+
+<div>
+  <h2 class="tp-h2">Radio configuration</h2>
+
+  <mat-radio-group class="tp-radio-group" [(ngModel)]="favoriteSeason">
+    <mat-radio-button class="tp-radio-button" *ngFor="let season of seasons" [value]="season">
+      {{season}}
+    </mat-radio-button>
+  </mat-radio-group>
+  <div class="tp-selected-value">
+    Selected Season: {{favoriteSeason}}
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <h2 class="tp-h2">Select configuration</h2>
+
+  <form>
+    <h4>mat-select</h4>
+    <mat-form-field>
+      <mat-select placeholder="Favorite food" [(ngModel)]="selectedValue" name="food">
+        <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{food.display}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <p> Selected food: {{selectedValue}} </p>
+  </form>
+</div>
+
+<hr>
+
+<div>
+  <h2 class="tp-h2">Slider configuration</h2>
+
+  <mat-slider class="tp-margin" [disabled]="disabled" [invert]="invert" [thumbLabel]="thumbLabel" [(ngModel)]="value"
+    [vertical]="vertical">
+  </mat-slider>
+  <section class="tp-section">
+    <mat-checkbox class="tp-margin" [(ngModel)]="thumbLabel">Show thumb label</mat-checkbox>
+  </section>
+  <section class="tp-section">
+    <mat-checkbox class="tp-margin" [(ngModel)]="vertical">Vertical</mat-checkbox>
+    <mat-checkbox class="tp-margin" [(ngModel)]="invert">Inverted</mat-checkbox>
+  </section>
+  <section class="tp-section">
+    <mat-checkbox class="tp-margin" [(ngModel)]="disabled">Disabled</mat-checkbox>
+  </section>
+</div>
+
+<hr>
+
+<div>
+  <h2 class="tp-h2">Toggle Slider configuration</h2>
+
+  <mat-slide-toggle class="tp-margin" [checked]="checked" [disabled]="disabled">
+    Slide!
+  </mat-slide-toggle>
+  <section class="tp-section">
+    <mat-checkbox class="tp-margin" [(ngModel)]="checked">Checked</mat-checkbox>
+    <mat-checkbox class="tp-margin" [(ngModel)]="disabled">Disabled</mat-checkbox>
+  </section>
+</div>
