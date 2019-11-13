@@ -1,0 +1,170 @@
+<div>
+  <h2>Button</h2>
+  <div class="example-button-row">
+    <button mat-button>Basic</button>
+    <button mat-raised-button>Raised</button>
+    <button mat-stroked-button>Stroked</button>
+    <button mat-flat-button>Flat</button>
+    <button mat-icon-button>
+      <mat-icon aria-label="Heart">favorite</mat-icon>
+    </button>
+    <button mat-fab>Fab</button>
+    <button mat-mini-fab>Mini</button>
+    <a mat-button routerLink=".">Link</a>
+  </div>
+</div>
+
+
+<div>
+  <h2>Button Toggle</h2>
+  <mat-button-toggle-group #group="matButtonToggleGroup">
+    <mat-button-toggle value="left">
+      <mat-icon>format_align_left</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="center">
+      <mat-icon>format_align_center</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="right">
+      <mat-icon>format_align_right</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="justify" disabled>
+      <mat-icon>format_align_justify</mat-icon>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+  <div class="tp-selected-value">Selected value: {{group.value}}</div>
+</div>
+
+<div>
+  <h2>Badges</h2>
+  <p><span matBadge="4" matBadgeOverlap="false">Mail</span></p>
+  <p>
+    <button mat-raised-button color="primary" matBadge="8" matBadgePosition="before" matBadgeColor="accent">
+      Action
+    </button>
+  </p>
+  <p>
+    <mat-icon matBadge="15" matBadgeColor="warn">home</mat-icon>
+  </p>
+</div>
+
+<div>
+  <h2>Chips</h2>
+  <mat-chip-list>
+    <mat-chip>One</mat-chip>
+    <mat-chip>Two</mat-chip>
+    <mat-chip color="primary" selected>Tree</mat-chip>
+    <mat-chip color="accent" selected>Four</mat-chip>
+  </mat-chip-list>
+</div>
+
+<div>
+  <h2>Icon</h2>
+  <mat-icon>home</mat-icon>
+</div>
+
+<div>
+  <h2>progressive Spinner</h2>
+  <section class="tp-section">
+    <label class="tp-margin">Color:</label>
+    <mat-radio-group [(ngModel)]="color">
+      <mat-radio-button class="tp-margin" value="primary">
+        Primary
+      </mat-radio-button>
+      <mat-radio-button class="tp-margin" value="accent">
+        Accent
+      </mat-radio-button>
+      <mat-radio-button class="tp-margin" value="warn">
+        Warn
+      </mat-radio-button>
+    </mat-radio-group>
+  </section>
+  <section class="tp-section">
+    <label class="tp-margin">Mode:</label>
+    <mat-radio-group [(ngModel)]="mode">
+      <mat-radio-button class="tp-margin" value="determinate">
+        Determinate
+      </mat-radio-button>
+      <mat-radio-button class="tp-margin" value="indeterminate">
+        Indeterminate
+      </mat-radio-button>
+    </mat-radio-group>
+  </section>
+  <section class="tp-section" *ngIf="mode === 'determinate'">
+    <label class="tp-margin">Progress:</label>
+    <mat-slider class="tp-margin" [(ngModel)]="value"></mat-slider>
+  </section>
+  <section class="tp-section">
+    <label class="tp-margin">Mode: {{mode}}</label>
+    <mat-progress-spinner class="tp-margin" [color]="color" [mode]="mode" [value]="value">
+    </mat-progress-spinner>
+  </section>
+</div>
+
+<div>
+  <h2>Progress bar</h2>
+  <section class="tp-section">
+    <label class="tp-margin">Color:</label>
+    <mat-radio-group [(ngModel)]="color">
+      <mat-radio-button class="tp-margin" value="primary">
+        Primary
+      </mat-radio-button>
+      <mat-radio-button class="tp-margin" value="accent">
+        Accent
+      </mat-radio-button>
+      <mat-radio-button class="tp-margin" value="warn">
+        Warn
+      </mat-radio-button>
+    </mat-radio-group>
+  </section>
+  <section class="tp-section">
+    <label class="tp-margin">Mode:</label>
+    <mat-radio-group [(ngModel)]="modeBar">
+      <mat-radio-button class="tp-margin" value="determinate">
+        Determinate
+      </mat-radio-button>
+      <mat-radio-button class="tp-margin" value="indeterminate">
+        Indeterminate
+      </mat-radio-button>
+      <mat-radio-button class="tp-margin" value="buffer">
+        Buffer
+      </mat-radio-button>
+      <mat-radio-button class="tp-margin" value="query">
+        Query
+      </mat-radio-button>
+    </mat-radio-group>
+  </section>
+  <section class="tp-section" *ngIf="modeBar === 'determinate' || modeBar === 'buffer'">
+    <label class="tp-margin">Progress:</label>
+    <mat-slider class="tp-margin" [(ngModel)]="valueBar"></mat-slider>
+  </section>
+  <section class="tp-section" *ngIf="modeBar === 'buffer'">
+    <label class="tp-margin">Buffer:</label>
+    <mat-slider class="tp-margin" [(ngModel)]="bufferValue"></mat-slider>
+  </section>
+  <section class="tp-section">
+    <label class="tp-margin">Mode: {{modeBar}}</label>
+    <mat-progress-bar class="tp-margin" [color]="colorBar" [mode]="modeBar" [value]="valueBar"
+      [bufferValue]="bufferValue">
+    </mat-progress-bar>
+  </section>
+</div>
+
+<div>
+  <h2>Ripples</h2>
+
+  <mat-checkbox [(ngModel)]="centered" class="tp-ripple-checkbox">Centered</mat-checkbox>
+  <mat-checkbox [(ngModel)]="disabled" class="tp-ripple-checkbox">Disabled</mat-checkbox>
+  <mat-checkbox [(ngModel)]="unbounded" class="tp-ripple-checkbox">Unbounded</mat-checkbox>
+  <section>
+    <mat-form-field class="tp-ripple-form-field">
+      <input matInput [(ngModel)]="radius" type="number" placeholder="Radius">
+    </mat-form-field>
+    <mat-form-field class="tp-ripple-form-field">
+      <input matInput [(ngModel)]="color" type="text" placeholder="Color">
+    </mat-form-field>
+  </section>
+  <div class="tp-ripple-container mat-elevation-z4" matRipple [matRippleCentered]="centered"
+    [matRippleDisabled]="disabled" [matRippleUnbounded]="unbounded" [matRippleRadius]="radius" [matRippleColor]="colorRipple">
+    Click me
+  </div>
+</div>

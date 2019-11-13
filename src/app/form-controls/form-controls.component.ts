@@ -8,11 +8,11 @@ export interface Food {
 }
 
 @Component({
-  selector: 'app-matauto-complete',
-  templateUrl: './matauto-complete.component.html',
-  styleUrls: ['./matauto-complete.component.css']
+  selector: 'app-form-controls',
+  templateUrl: './form-controls.component.html',
+  styleUrls: ['./form-controls.component.css']
 })
-export class MatautoCompleteComponent implements OnInit {
+export class FormControlsComponent implements OnInit {
 
   title = 'materialApp';
   myControl = new FormControl();

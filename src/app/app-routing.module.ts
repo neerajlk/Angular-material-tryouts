@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MatautoCompleteComponent } from './matauto-complete/matauto-complete.component'
+
+import { FormControlsComponent } from './form-controls/form-controls.component'
+import { LayoutsComponent } from './layouts/layouts.component'
+import { ButtonsIndicatorsComponent } from './buttons-indicators/buttons-indicators.component'
 
 const routes: Routes = [
-  { path: '', component: MatautoCompleteComponent }
+  { path: 'form-controls', component: FormControlsComponent },
+  { path: 'layouts', component: LayoutsComponent },
+  { path: 'buttons-and-indicators', component: ButtonsIndicatorsComponent }
 ];
 
 @NgModule({

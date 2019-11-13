@@ -1,1 +1,22 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container class="tp-container">
+    <mat-sidenav mode="side" opened>
+        <section class="tp-section" [routerLink]="['form-controls']">
+            <span>Form Controls</span>
+        </section>
+        <section class="tp-section" [routerLink]="['layouts']">
+            <span>Layouts</span>
+        </section>
+        <section class="tp-section" [routerLink]="['buttons-and-indicators']">
+            <span>Buttons and Indicators</span>
+        </section>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <!-- <mat-toolbar color="primary">
+            <span class="gap">File</span>
+            <span>Edit</span>
+            <span class="filler"></span>
+            <span>About</span>
+        </mat-toolbar> -->
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
